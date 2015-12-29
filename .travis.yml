@@ -44,4 +44,5 @@ script:
   - ctest
 
 after_success:
+  - find `pwd` -type f -name '*.gcno' -exec sh -c "cd \`dirname {}\` && gcov -pb {} > /dev/null" \;
   - codecov
